@@ -1,0 +1,38 @@
+import orbalion.*
+
+describe "Pruebas iniciales de Orbalion" {
+
+    test "Una tecnologia se inicializa correctamente" {
+        const tecnologia = new Tecnologia(
+            nombre = "Nucleo gravitacional",
+            valorEnergetico = 200,
+            activa = true
+        )
+
+        assert.equals("Nucleo gravitacional", tecnologia.nombre())
+        assert.equals(200, tecnologia.valorEnergetico())
+        assert.that(tecnologia.estaActiva())
+    }
+
+    test "Una tecnologia puede desactivarse" {
+        const tecnologia = new Tecnologia(
+            nombre = "Camara de fusion",
+            valorEnergetico = 300,
+            activa = true
+        )
+
+        tecnologia.desactivar()
+
+        assert.notThat(tecnologia.estaActiva())
+    }
+
+    test "La precision del entrenador no supera 100" {
+    const entrenador = new Entrenador()
+
+    entrenador.nivelDePrecision(100)
+    entrenador.aumentarNivelDePrecision()
+
+    assert.equals(100, entrenador.nivelDePrecision())
+    }
+
+}
